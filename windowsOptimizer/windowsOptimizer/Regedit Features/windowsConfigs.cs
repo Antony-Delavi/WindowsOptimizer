@@ -28,18 +28,19 @@ public static partial class windowsConfigs
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "powershell.exe",
-                    Arguments = $"-Command \"reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v NetworkThrottlingIndex /t REG_DWORD /d ffffffff /f;" +
-                                $"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\" /v Win32PrioritySeparation /t REG_DWORD /d 38 /f;" +
-                                $"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\" /v FlipFlopWheel /t REG_DWORD /d 0 /f;" +
-                                $"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\" /v FlipFlopHScroll /t REG_DWORD /d 0 /f;" +
-                                $"reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Psched\" /v NonBestEffortLimit /t REG_DWORD /d 0 /f;" +
-                                $"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\" /v EnablePrefetcher /t REG_DWORD /d 3 /f;" +
-                                $"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\" /v EnableSuperfetch /t REG_DWORD /d 0 /f;" +
-                                $"sc stop SysMain & sc config SysMain start=disabled;" +
-                                $"sc stop DiagTrack & sc config DiagTrack start=disabled;" +
-                                $"sc stop dmwappushservice & sc config dmwappushservice start=disabled;" +
-                                $"reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v SystemResponsiveness /t REG_DWORD /d 0 /f;\"",
-                    Verb = "runas"
+                    Arguments = "-Command \"reg add \\\"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\\" /v NetworkThrottlingIndex /t REG_DWORD /d ffffffff /f; " +
+                                "reg add \\\"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\\\" /v Win32PrioritySeparation /t REG_DWORD /d 28 /f; " +
+                                "reg add \\\"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\\" /v FlipFlopWheel /t REG_DWORD /d 0 /f; " +
+                                "reg add \\\"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\\" /v FlipFlopHScroll /t REG_DWORD /d 0 /f; " +
+                                "reg add \\\"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Psched\\\" /v NonBestEffortLimit /t REG_DWORD /d 0 /f; " +
+                                "reg add \\\"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\\\" /v EnablePrefetcher /t REG_DWORD /d 3 /f; " +
+                                "reg add \\\"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\\\" /v EnableSuperfetch /t REG_DWORD /d 0 /f; " +
+                                "reg add \\\"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\\" /v SystemResponsiveness /t REG_DWORD /d 0 /f;" +
+                                "sc stop SysMain; sc config SysMain start=disabled; " +
+                                "sc stop DiagTrack; sc config DiagTrack start=disabled; " +
+                                "sc stop dmwappushservice; sc config dmwappushservice start=disabled; \"",
+                    Verb = "runas",
+                    UseShellExecute = true
                 });
                 break;
         }

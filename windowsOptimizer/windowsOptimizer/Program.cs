@@ -5,7 +5,7 @@
         public string computerUserName = Environment.UserName;
         public static void Main(string[] args)
         {
-            windowsConfigs.configs("gameBar", 1);
+            windowsConfigs.configs("limitations", 1);
         }
     }
 }
