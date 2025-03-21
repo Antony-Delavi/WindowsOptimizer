@@ -60,8 +60,8 @@ public static partial class srvcDisablePacks
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "powershell.exe",
-                    Arguments = $"-Command \"Set-Service -Name 'WinDefend' -StartupType {iniType}; " +
-                                $"Set-Service -Name 'Sense' -StartupType {iniType}; " +
+                    Arguments = $"-Command \"reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware /t REG_DWORD /d 1 /f; " +
+                                $"reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender SmartScreen\" /v EnableSmartScreen /t REG_DWORD /d 0 /f; " +
                                 $"Set-Service -Name 'smartscreen' -StartupType {iniType}; " +
                                 $"Set-Service -Name 'UMFD-0' -StartupType {iniType}; " +
                                 $"Set-Service -Name 'AppIDSvc' -StartupType {iniType}; " +

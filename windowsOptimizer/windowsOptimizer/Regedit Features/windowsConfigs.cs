@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-
 public static partial class windowsConfigs
 {
     public static void configs(string optionConfig, int onof)
