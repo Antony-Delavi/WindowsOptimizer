@@ -23,8 +23,8 @@ public static partial class Test
                             Verb = "runas"
                         });
 
-                        processo?.WaitForExit(); // Espera o PowerShell terminar
-                        await Task.Delay(1000, cancelar.Token); // Pausa de 1 segundo
+                        processo?.WaitForExit();
+                        await Task.Delay(1000, cancelar.Token);
                     }
                     catch (Exception ex)
                     {
@@ -40,3 +40,5 @@ public static partial class Test
     }
 
 }
+
+//estou testando isso, não sei se vou por oficialmente como uma nova feature, talvez mais no futuro

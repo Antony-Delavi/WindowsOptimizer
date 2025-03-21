@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-public static partial class srvcLists
+public static partial class servicesList
 {
     public static void disableWhoService(string serviceName, string inicializationType)
     {

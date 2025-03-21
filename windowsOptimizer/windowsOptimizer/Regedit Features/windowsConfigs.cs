@@ -5,7 +5,7 @@ public static partial class windowsConfigs
     {
         switch (optionConfig)
         {
-            case "gameMode":
+            case "gameMode": // Ativa ou Desativa o gamemode, isso só é bom pra quem tem mais de 8gb de ram
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "powershell.exe",
@@ -14,7 +14,7 @@ public static partial class windowsConfigs
                     Verb = "runas"
                 });
                 break;
-            case "gameBar":
+            case "gameBar": //aparentemente desativa o gamebar, não testei ainda, talvez tenha que arrumar
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "powershell.exe",
@@ -23,7 +23,7 @@ public static partial class windowsConfigs
                     Verb = "runas"
                 });
                 break;
-            case "limitations":
+            case "limitations": //isso retira limitações do windows, limitações de internet, cpu e etc.
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "powershell.exe",

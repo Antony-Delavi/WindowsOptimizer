@@ -5,7 +5,7 @@ namespace optmizerTony
 {
     class Program()
     {
-        public string computerUserName = Environment.UserName;
+        public string computerUserName = Environment.UserName; //não está sendo usado pra nada
         public static async Task Main(string[] args)
         {
             Console.Clear();
@@ -18,12 +18,12 @@ namespace optmizerTony
                               "7. Disable Printer, scaners and etc. \n" +
                               "8. (BROKEN)Disable Bluetooth. \n" +
                               "9. Disable Random Programs services\n" +
+                              "u. Disable Windows Update! \n" +
                               "t. (TESTING FEATURE) NtSetTimerResolution 1s (16.5s Default)");
                                 
             Console.WriteLine("\n Your choice: ");
             char option = char.Parse(Console.ReadLine());
-            
-            
+
             switch(option)
             {
                 case '1':
@@ -42,42 +42,43 @@ namespace optmizerTony
                     Main([]);
                     break;
                 case '4':
-                    srvcDisablePacks.disableServices("winSecurePack", "Disabled");
+                    servicesPacks.disableServices("windowsForGaming", "Disabled");
                     await Task.Delay(2500);
                     Main([]);
                     break;
                 case '5':
-                    srvcDisablePacks.disableServices("XboxServices", "Disabled");
+                    servicesPacks.disableServices("XboxServices", "Disabled");
                     await Task.Delay(2500);
                     Main([]);
                     break;
                 case '6':
-                    srvcDisablePacks.disableServices("securancePack", "Disabled");
+                    servicesPacks.disableServices("securancePack", "Disabled");
                     await Task.Delay(2500);
                     Main([]);
                     break;
                 case '7':
-                    srvcDisablePacks.disableServices("printers&peripherals", "Disabled");
+                    servicesPacks.disableServices("printers&peripherals", "Disabled");
                     await Task.Delay(2500);
                     Main([]);
                     break;
                 case '8':
-                    srvcDisablePacks.disableServices("bluetoothPacks", "Disabled");
+                    servicesPacks.disableServices("bluetoothPacks", "Disabled");
                     await Task.Delay(2500);
                     Main([]);
                     break;
                 case '9':
-                    srvcDisablePacks.disableServices("programsServices", "Disabled");
+                    servicesPacks.disableServices("programsServices", "Disabled");
                     await Task.Delay(2500);
                     Main([]);
                     break;
                 case 't':
-                    ntResolution.defineRestime(1000);
+                    SetTimerResolution.defineResTime(1000);
                     await Task.Delay(2500);
                     Main([]);
                     break;
-                case 'f':
-                    Test.TestAsync();
+                case 'u':
+                    servicesPacks.disableServices("windowsUpdate", "Disable");
+                    await Task.Delay(2500);
                     Main([]);
                     break;
             }
