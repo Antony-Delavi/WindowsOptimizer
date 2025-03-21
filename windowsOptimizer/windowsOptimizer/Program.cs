@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Threading;
 
 namespace optmizerTony
 {
@@ -16,7 +17,9 @@ namespace optmizerTony
                               "6. (BROKEN)Disable Windows Securance(Win Defender, virus protection etc.) \n" +
                               "7. Disable Printer, scaners and etc. \n" +
                               "8. (BROKEN)Disable Bluetooth. \n" +
-                              "9. Disable Random Programs services");
+                              "9. Disable Random Programs services\n" +
+                              "t. (TESTING FEATURE) NtSetTimerResolution 1s (16.5s Default)");
+                                
             Console.WriteLine("\n Your choice: ");
             char option = char.Parse(Console.ReadLine());
             
@@ -73,7 +76,10 @@ namespace optmizerTony
                     await Task.Delay(2500);
                     Main([]);
                     break;
-
+                case 'f':
+                    Test.TestAsync();
+                    Main([]);
+                    break;
             }
         }
     }

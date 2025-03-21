@@ -35,8 +35,6 @@ public static partial class srvcDisablePacks
                                 $"Set-Service -Name 'stisvc' -StartupType {iniType}" +
                                 $"Set-Service -Name 'CscService' -StartupType {iniType}" +
                                 $"Set-Service -Name 'Rasman' -StartupType {iniType}" +
-                                $"Set-Service -Name 'WMPNetworkSvc' -StartupType {iniType}" +
-                                $"Set-Service -Name 'WMPNetworkSvc' -StartupType {iniType}" +
                                 $"Set-Service -Name 'WMPNetworkSvc' -StartupType {iniType}\"" ,
                     Verb = "runas",
                     UseShellExecute = true
